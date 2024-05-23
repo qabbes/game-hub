@@ -2,35 +2,11 @@ import React, { useEffect, useState } from "react";
 import apiClient from "../../services/api-client";
 import { CanceledError } from "axios";
 import { Text, list } from "@chakra-ui/react";
-
-interface Game {
-  id: number;
-  name: string;
-  slug: string;
-  platforms: string[];
-  releaseDate: Date;
-  image: string;
-  ratings: [{}];
-}
-
-interface FetchGamesResponse {
-  count: number;
-  results: Game[];
-}
+import useGames from "../../hooks/useGames";
 
 const GameGrid = () => {
-  const [games, setGames] = useState<Game[]>([]);
-  const [error, setError] = useState("");
+  const { games, error } = useGames();
 
-  useEffect(() => {
-    apiClient
-      .get<FetchGamesResponse>("/games")
-      .then((res) => setGames(res.data.results))
-      .catch((err) => {
-        if (err instanceof CanceledError) return;
-        setError(err.message);
-      });
-  }, []);
   return (
     <>
       <ul>
