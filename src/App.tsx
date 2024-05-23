@@ -15,7 +15,7 @@ function App() {
       gap="1"
       fontWeight="bold"
     >
-      <GridItem pl="2" area={"nav"}>
+      <GridItem area={"nav"}>
         <Navbar></Navbar>
       </GridItem>
       <Show above="sm">
