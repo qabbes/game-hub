@@ -13,7 +13,6 @@ function App() {
         lg: '"nav nav" "aside main"', //1024px
       }}
       gap="1"
-      color="blackAlpha.700"
       fontWeight="bold"
     >
       <GridItem pl="2" area={"nav"}>
