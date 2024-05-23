@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button, ButtonGroup, Grid, GridItem, Show } from "@chakra-ui/react";
 import "./App.css";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
@@ -11,14 +12,12 @@ function App() {
         md: '"nav nav" "aside main"',
         lg: '"nav nav" "aside main"', //1024px
       }}
-      gridTemplateRows={"50px 1fr 30px"}
-      h="300px"
       gap="1"
       color="blackAlpha.700"
       fontWeight="bold"
     >
-      <GridItem pl="2" bg="orange.300" area={"nav"}>
-        NavBar
+      <GridItem pl="2" area={"nav"}>
+        <Navbar></Navbar>
       </GridItem>
       <Show above="sm">
         <GridItem pl="2" bg="pink.300" area={"aside"}>
