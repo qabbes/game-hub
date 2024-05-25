@@ -9,10 +9,11 @@ import { Platform } from "../../hooks/useGames";
 import { HStack } from "@chakra-ui/react";
 
 interface Props {
-  platform: Platform;
+  parent_platforms: { platform: Platform }[];
 }
 
-function platformDisplay(platformId: number) {
+function platformDisplay(platform: Platform) {
+  var platformId = platform.id;
   switch (platformId) {
     case 1:
       return <RiWindowsFill />;
@@ -33,10 +34,10 @@ function platformDisplay(platformId: number) {
   }
 }
 
-const PlatformIconsRender = ({ platform }: Props) => {
+const PlatformIconsRender = ({ parent_platforms }: Props) => {
   return (
     <HStack justifyContent="space-between" color="gray.500" mt={1}>
-      {platformDisplay(platform.id)}
+      {parent_platforms.map(({ platform }) => platformDisplay(platform))}
     </HStack>
   );
 };
