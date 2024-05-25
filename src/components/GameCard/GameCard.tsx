@@ -1,5 +1,6 @@
 import React from "react";
 import { Game } from "../../hooks/useGames";
+import getCroppedImageUrl from "../../services/image-url";
 import {
   Card,
   Heading,
@@ -19,7 +20,10 @@ interface Props {
 const GameCard = ({ game }: Props) => {
   return (
     <Card maxW="sm" borderRadius="lg" overflow="hidden">
-      <Image src={game.background_image} alt="No image found" />
+      <Image
+        src={getCroppedImageUrl(game.background_image)}
+        alt="No image found"
+      />
       <CardBody>
         <Stack mt="6" spacing="3">
           <Heading size="md">{game.name}</Heading>
