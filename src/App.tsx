@@ -3,6 +3,7 @@ import { Button, ButtonGroup, Grid, GridItem, Show } from "@chakra-ui/react";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import GameGrid from "./components/GameGrid/GameGrid";
+import Aside from "./components/Aside/Aside";
 
 function App() {
   return (
@@ -14,14 +15,18 @@ function App() {
         lg: '"nav nav" "aside main"', //1024px
       }}
       gap="1"
-      fontWeight="bold"
+      templateColumns={{
+        base: "1fr",
+        sm: "200px 1fr",
+        lg: "200px 1fr",
+      }}
     >
-      <GridItem area={"nav"}>
+      <GridItem area={"nav"} paddingX={3}>
         <Navbar></Navbar>
       </GridItem>
       <Show above="sm">
-        <GridItem pl="2" bg="pink.300" area={"aside"}>
-          Aside
+        <GridItem paddingX={5} area={"aside"}>
+          <Aside></Aside>
         </GridItem>
       </Show>
       <GridItem area={"main"}>
