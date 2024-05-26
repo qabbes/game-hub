@@ -19,7 +19,7 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <Card maxW="sm" borderRadius="lg" overflow="hidden">
+    <Card>
       <Image
         src={getCroppedImageUrl(game.background_image)}
         alt="No image found"
