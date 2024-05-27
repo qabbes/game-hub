@@ -4,8 +4,14 @@ import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import GameGrid from "./components/GameGrid/GameGrid";
 import Aside from "./components/Aside/Aside";
+import { Genre } from "./hooks/useGenres";
 
 function App() {
+  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
+
+  const handleSelectedGenre = (selectedGenre: Genre) => {
+    setSelectedGenre(selectedGenre);
+  };
   return (
     <Grid
       templateAreas={{
@@ -26,11 +32,11 @@ function App() {
       </GridItem>
       <Show above="sm">
         <GridItem paddingX={5} area={"aside"}>
-          <Aside></Aside>
+          <Aside onSelectGenre={handleSelectedGenre}></Aside>
         </GridItem>
       </Show>
       <GridItem area={"main"}>
-        <GameGrid />
+        <GameGrid selectedGenre={selectedGenre} />
       </GridItem>
     </Grid>
   );

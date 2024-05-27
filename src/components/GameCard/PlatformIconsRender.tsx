@@ -16,21 +16,21 @@ function platformDisplay(platform: Platform) {
   var platformId = platform.id;
   switch (platformId) {
     case 1:
-      return <RiWindowsFill />;
+      return <RiWindowsFill key={platformId} />;
     case 2:
-      return <RiPlaystationLine />;
+      return <RiPlaystationLine key={platformId} />;
     case 3:
-      return <FaXbox />;
+      return <FaXbox key={platformId} />;
     case 4:
-      return <FaAppStoreIos />;
+      return <FaAppStoreIos key={platformId} />;
     case 5:
-      return <FaApple />;
+      return <FaApple key={platformId} />;
     case 6:
-      return <VscTerminalLinux />;
+      return <VscTerminalLinux key={platformId} />;
     case 7:
-      return <BsNintendoSwitch />;
+      return <BsNintendoSwitch key={platformId} />;
     case 8:
-      return <FaAndroid />;
+      return <FaAndroid key={platformId} />;
   }
 }
 
