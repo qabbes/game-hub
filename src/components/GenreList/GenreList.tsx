@@ -5,12 +5,29 @@ import {
   Image,
   Text,
   List,
+  Spinner,
+  Skeleton,
 } from "@chakra-ui/react";
 import useGenres from "../../hooks/useGenres";
 import getCroppedImageUrl from "../../services/image-url";
+import GenreListSkeleton from "./GenreListSkeleton";
 
 const GenreList = () => {
-  const { data } = useGenres();
+  const { data, isLoading, error } = useGenres();
+
+  if (error) return null;
+
+  if (isLoading)
+    return (
+      <Spinner
+        thickness="4px"
+        speed="0.65s"
+        emptyColor="gray.200"
+        color="gray.500"
+        size="lg"
+      />
+    );
+
   return (
     <List>
       {data.map((genre) => (
