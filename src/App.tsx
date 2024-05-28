@@ -5,9 +5,12 @@ import Navbar from "./components/Navbar/Navbar";
 import GameGrid from "./components/GameGrid/GameGrid";
 import Aside from "./components/Aside/Aside";
 import { Genre } from "./hooks/useGenres";
+import PlatformSelector from "./components/PlatformSelector";
+import { Platform } from "./hooks/usePlatforms";
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
+  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null);
 
   const handleSelectedGenre = (selectedGenre: Genre) => {
     setSelectedGenre(selectedGenre);
@@ -32,11 +35,12 @@ function App() {
       </GridItem>
       <Show above="sm">
         <GridItem paddingX={5} area={"aside"}>
-          <Aside onSelectGenre={handleSelectedGenre}></Aside>
+          <Aside selectedGenre={selectedGenre} onSelectGenre={handleSelectedGenre}></Aside>
         </GridItem>
       </Show>
       <GridItem area={"main"}>
-        <GameGrid selectedGenre={selectedGenre} />
+        <PlatformSelector selectedPlatform={selectedPlatform} onSelectPlatform={setSelectedPlatform} />
+        <GameGrid selectedGenre={selectedGenre} selectedPlatform={selectedPlatform} />
       </GridItem>
     </Grid>
   );

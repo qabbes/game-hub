@@ -4,10 +4,16 @@ import { Genre } from "../../hooks/useGenres";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const Aside = ({ onSelectGenre }: Props) => {
-  return <GenreList onSelectGenre={onSelectGenre}></GenreList>;
+const Aside = ({ onSelectGenre, selectedGenre }: Props) => {
+  return (
+    <GenreList
+      selectedGenre={selectedGenre}
+      onSelectGenre={onSelectGenre}
+    ></GenreList>
+  );
 };
 
 export default Aside;
