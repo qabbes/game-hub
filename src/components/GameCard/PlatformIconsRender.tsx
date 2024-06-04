@@ -1,12 +1,9 @@
-import React from "react";
-import { SiPlaystation5 } from "react-icons/si";
-import { RiPlaystationLine, RiWindowsFill } from "react-icons/ri";
-import { FaXbox, FaApple, FaAppStoreIos, FaAndroid } from "react-icons/fa";
+import { HStack } from "@chakra-ui/react";
 import { BsNintendoSwitch } from "react-icons/bs";
-import { FaLinux } from "react-icons/fa6";
+import { FaAndroid, FaAppStoreIos, FaApple, FaXbox } from "react-icons/fa";
+import { RiPlaystationLine, RiWindowsFill } from "react-icons/ri";
 import { VscTerminalLinux } from "react-icons/vsc";
 import { Platform } from "../../hooks/useGames";
-import { HStack } from "@chakra-ui/react";
 
 interface Props {
   parent_platforms: { platform: Platform }[];

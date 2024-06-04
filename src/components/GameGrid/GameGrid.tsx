@@ -1,14 +1,9 @@
-import React, { useEffect, useState } from "react";
-import apiClient from "../../services/api-client";
-import { CanceledError } from "axios";
 import { SimpleGrid, Text } from "@chakra-ui/react";
+import { GameQuery } from "../../App";
 import useGames from "../../hooks/useGames";
 import GameCard from "../GameCard/GameCard";
-import GameCardSkeleton from "../GameCardSkeleton";
 import GameCardContainer from "../GameCard/GameCardContainer";
-import { Genre } from "../../hooks/useGenres";
-import { Platform } from "../../hooks/usePlatforms";
-import { GameQuery } from "../../App";
+import GameCardSkeleton from "../GameCardSkeleton";
 
 interface Props {
   gameQuery: GameQuery;
