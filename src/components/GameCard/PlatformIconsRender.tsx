@@ -3,7 +3,7 @@ import { BsNintendoSwitch } from "react-icons/bs";
 import { FaAndroid, FaAppStoreIos, FaApple, FaXbox } from "react-icons/fa";
 import { RiPlaystationLine, RiWindowsFill } from "react-icons/ri";
 import { VscTerminalLinux } from "react-icons/vsc";
-import { Platform } from "../../hooks/useGames";
+import { Platform } from "../../hooks/usePlatforms";
 
 interface Props {
   parent_platforms: { platform: Platform }[];
