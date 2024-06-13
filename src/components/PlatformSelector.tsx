@@ -3,15 +3,17 @@ import { BsChevronDown } from "react-icons/bs";
 
 import usePlatforms, { Platform } from "../hooks/usePlatforms";
 import usePlatform from "../hooks/usePlatform";
+import useGameQueryStore from "../store";
 
-interface Props {
-  onSelectPlatform: (platform: Platform | null) => void;
-  selectedPlatformId?: number;
-}
+const PlatformSelector = () => {
+  const setSelectedPlatformId = useGameQueryStore((s) => s.setPlatformId);
+  const clearSelectedPlatform = useGameQueryStore((s) => s.clearPlatform);
 
-const PlatformSelector = ({ onSelectPlatform, selectedPlatformId }: Props) => {
-  const { data: platforms, error } = usePlatforms();
+  const selectedPlatformId = useGameQueryStore((s) => s.gameQuery.platformId);
   const platformSelected = usePlatform(selectedPlatformId);
+  const currentGameQuery = useGameQueryStore((s) => s.gameQuery);
+
+  const { data: platforms, error } = usePlatforms();
 
   if (error) return null;
 
@@ -21,11 +23,21 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatformId }: Props) => {
         {platformSelected?.name || "Platforms"}
       </MenuButton>
       <MenuList>
-        <MenuItem onClick={() => onSelectPlatform(null)}>All</MenuItem>
-        {platforms?.results.map((platform: Platform | null) => (
+        <MenuItem
+          onClick={() =>
+            clearSelectedPlatform(
+              currentGameQuery.genreId,
+              currentGameQuery.searchText,
+              currentGameQuery.sortOrder
+            )
+          }
+        >
+          All
+        </MenuItem>
+        {platforms?.results.map((platform: Platform) => (
           <MenuItem
+            onClick={() => setSelectedPlatformId(platform?.id)}
             key={platform?.id}
-            onClick={() => onSelectPlatform(platform)}
           >
             {platform?.name}
           </MenuItem>
