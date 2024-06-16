@@ -31,7 +31,7 @@ const GenreList = () => {
 
   return (
     <>
-      <Heading fontSize={"2xl"} marginBottom={2}>
+      <Heading marginY={5} fontSize={"2xl"} marginBottom={2}>
         Genres
       </Heading>
       <List>

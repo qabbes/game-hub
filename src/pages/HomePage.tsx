@@ -1,20 +1,15 @@
-import { Box, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
-import { useState } from "react";
-import "./App.css";
-import Aside from "./components/Aside/Aside";
-import GameGrid from "./components/GameGrid/GameGrid";
-import GameHeading from "./components/Navbar/GameHeading";
-import Navbar from "./components/Navbar/Navbar";
-import PlatformSelector from "./components/PlatformSelector";
-import SortSelector from "./components/SortSelector";
+import { Grid, Show, GridItem, HStack, Box } from "@chakra-ui/react";
+import Aside from "../components/Aside/Aside";
+import GameGrid from "../components/GameGrid/GameGrid";
+import GameHeading from "../components/Navbar/GameHeading";
+import PlatformSelector from "../components/PlatformSelector";
+import SortSelector from "../components/SortSelector";
 
-function App() {
-  const [selectedSort, setSelectedSort] = useState("");
-
+const HomePage = () => {
   return (
     <Grid
       templateAreas={{
-        base: '"nav" "main"',
+        base: '"main"',
         sm: '"nav nav" "aside main"',
         md: '"nav nav" "aside main"',
         lg: '"nav nav" "aside main"', //1024px
@@ -26,9 +21,6 @@ function App() {
         lg: "200px 1fr",
       }}
     >
-      <GridItem area={"nav"} paddingX={3}>
-        <Navbar></Navbar>
-      </GridItem>
       <Show above="sm">
         <GridItem paddingX={5} area={"aside"}>
           <Aside></Aside>
@@ -46,6 +38,6 @@ function App() {
       </GridItem>
     </Grid>
   );
-}
+};
 
-export default App;
+export default HomePage;
