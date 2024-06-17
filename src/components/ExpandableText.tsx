@@ -14,9 +14,8 @@ const ExpandableText = ({ children, maxChar }: Props) => {
 
   return (
     <>
-      <Text>
+      <Text fontSize={"sm"} paddingBlock={3}>
         {text}
-
         <Button
           marginLeft={1}
           size="xs"

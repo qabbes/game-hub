@@ -12,7 +12,7 @@ import getCroppedImageUrl from "../../services/image-url";
 import CriticScore from "../CriticScore";
 import Emoji from "../Emoji";
 import PlatformIconsRender from "./PlatformIconsRender";
-import { Game } from "../../entities/Game";
+import Game from "../../entities/Game";
 
 interface Props {
   game: Game;
