@@ -24,7 +24,7 @@ const PlatformSelector = () => {
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
         {platformSelected?.name || "Platforms"}
       </MenuButton>
-      <MenuList>
+      <MenuList maxHeight={350} overflowY={"scroll"}>
         <MenuItem
           onClick={() =>
             clearSelectedPlatform(
