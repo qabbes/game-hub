@@ -1,14 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import APIClient from "../services/api-client";
 import ms from "ms";
-
-export interface GameDetails {
-  description_raw: string;
-  name: string;
-  background_image: string;
-  background_image_additional: string;
-  website: string;
-}
+import { GameDetails } from "../entities/GameDetails";
 
 const apiClient = new APIClient<GameDetails>("/games");
 
