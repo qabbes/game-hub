@@ -4,7 +4,7 @@ const ColorModeSwitcher = () => {
   const { toggleColorMode, colorMode } = useColorMode();
 
   return (
-    <HStack ml={3} mr="2px">
+    <HStack ml={3} mr={2}>
       <Switch
         id="color-mode"
         size="md"

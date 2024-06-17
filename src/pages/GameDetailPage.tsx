@@ -6,6 +6,8 @@ import getENdescription from "../services/slice-description";
 import DefinitionItem from "../components/DefinitionItem";
 import CriticScore from "../components/CriticScore";
 import GameAttributes from "../components/GameAttributes";
+import EmbeddedVideo from "../components/EmbeddedVideo";
+import GameScreenshots from "../components/GameScreenshots";
 
 const GameDetailPage = () => {
   const { slug } = useParams();
@@ -19,6 +21,8 @@ const GameDetailPage = () => {
       <Heading>{game?.name}</Heading>
       <ExpandableText children={description} maxChar={300}></ExpandableText>
       <GameAttributes game={game} />
+      <EmbeddedVideo gameId={game.id} />
+      <GameScreenshots gameId={game.id} />
     </>
   );
 };
